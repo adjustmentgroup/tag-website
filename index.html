@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Adjustment Group — We help human teams adjust to AI</title>
+<meta name="description" content="We help human teams adjust to AI. Human teams. AI systems. The adjustment your business needs to make.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Georgia&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --navy: #1A2744;
+  --tan: #D4B896;
+  --offwhite: #F5F2ED;
+  --white: #FFFFFF;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  color: var(--navy);
+  background: var(--offwhite);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4 {
+  font-family: Georgia, 'Times New Roman', serif;
+  font-weight: normal;
+  line-height: 1.25;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.container {
+  width: 100%;
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* ── NAV ── */
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  padding: 16px 0;
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+}
+
+.nav.scrolled {
+  background: var(--navy);
+}
+
+.nav-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav-logo svg {
+  display: block;
+}
+
+.btn-audit {
+  display: inline-block;
+  background: var(--tan);
+  color: var(--navy);
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  padding: 12px 24px;
+  border: none;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+}
+
+.btn-audit:hover {
+  opacity: 0.85;
+}
+
+/* ── HERO ── */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--navy);
+  overflow: hidden;
+}
+
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  background: url('images/hero.jpg') center center / cover no-repeat;
+}
+
+.hero-bg::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--navy);
+  opacity: 0.6;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  max-width: 780px;
+  padding: 120px 24px 80px;
+}
+
+.hero h1 {
+  font-size: clamp(32px, 5vw, 56px);
+  color: var(--white);
+  margin-bottom: 24px;
+  letter-spacing: -0.5px;
+}
+
+.hero-sub {
+  font-size: clamp(16px, 2vw, 20px);
+  color: var(--offwhite);
+  margin-bottom: 40px;
+  line-height: 1.6;
+  opacity: 0.9;
+}
+
+.btn-cta {
+  display: inline-block;
+  background: var(--tan);
+  color: var(--navy);
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  padding: 18px 40px;
+  border: none;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+  letter-spacing: 0.3px;
+}
+
+.btn-cta:hover {
+  opacity: 0.85;
+}
+
+.hero-note {
+  margin-top: 16px;
+  font-size: 13px;
+  color: var(--offwhite);
+  opacity: 0.6;
+  letter-spacing: 0.5px;
+}
+
+/* ── SECTION SHARED ── */
+.section-label {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 11px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  opacity: 0.5;
+  margin-bottom: 16px;
+}
+
+.section-light {
+  background: var(--offwhite);
+  padding: 100px 0;
+}
+
+.section-dark {
+  background: var(--navy);
+  color: var(--white);
+  padding: 100px 0;
+}
+
+/* ── PHILOSOPHY ── */
+.philosophy-intro {
+  max-width: 700px;
+  margin-bottom: 64px;
+}
+
+.philosophy-intro h2 {
+  font-size: clamp(26px, 3.5vw, 40px);
+  line-height: 1.3;
+  color: var(--navy);
+}
+
+.principles {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 48px;
+}
+
+.principle {
+  display: flex;
+  gap: 24px;
+  align-items: flex-start;
+}
+
+.principle-num {
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 36px;
+  color: var(--tan);
+  line-height: 1;
+  flex-shrink: 0;
+  min-width: 48px;
+}
+
+.principle p {
+  font-size: 16px;
+  line-height: 1.7;
+  color: var(--navy);
+  opacity: 0.85;
+}
+
+/* ── HOW IT WORKS ── */
+.steps-heading {
+  max-width: 600px;
+  margin-bottom: 56px;
+}
+
+.steps-heading h2 {
+  font-size: clamp(26px, 3.5vw, 40px);
+  color: var(--white);
+}
+
+.steps-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+}
+
+.step-card {
+  background: var(--offwhite);
+  color: var(--navy);
+  padding: 40px 32px;
+}
+
+.step-label {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 11px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--tan);
+  margin-bottom: 8px;
+}
+
+.step-card h3 {
+  font-size: 24px;
+  margin-bottom: 16px;
+  color: var(--navy);
+}
+
+.step-card p {
+  font-size: 15px;
+  line-height: 1.7;
+  opacity: 0.8;
+}
+
+/* ── WHO IT'S FOR ── */
+.who-intro {
+  max-width: 720px;
+  margin-bottom: 56px;
+}
+
+.who-intro h2 {
+  font-size: clamp(26px, 3.5vw, 40px);
+  margin-bottom: 24px;
+  color: var(--navy);
+}
+
+.who-intro p {
+  font-size: 16px;
+  line-height: 1.8;
+  opacity: 0.8;
+}
+
+.niche-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+  margin-bottom: 56px;
+}
+
+.niche-card {
+  background: var(--white);
+  overflow: hidden;
+}
+
+.niche-card-img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+}
+
+.niche-card-body {
+  padding: 28px 24px;
+}
+
+.niche-card h3 {
+  font-size: 20px;
+  margin-bottom: 10px;
+  color: var(--navy);
+}
+
+.niche-card p {
+  font-size: 14px;
+  line-height: 1.6;
+  opacity: 0.75;
+}
+
+.not-for {
+  border-top: 1px solid rgba(26, 39, 68, 0.15);
+  padding-top: 32px;
+  font-size: 13px;
+  line-height: 1.8;
+  opacity: 0.5;
+  max-width: 700px;
+}
+
+/* ── CLOSING CTA ── */
+.cta-section {
+  text-align: center;
+}
+
+.cta-section h2 {
+  font-size: clamp(30px, 4vw, 48px);
+  color: var(--white);
+  margin-bottom: 16px;
+}
+
+.cta-section .cta-sub {
+  font-size: clamp(16px, 2vw, 19px);
+  color: var(--offwhite);
+  opacity: 0.8;
+  margin-bottom: 32px;
+  max-width: 560px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.pills {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 40px;
+}
+
+.pill {
+  background: var(--tan);
+  color: var(--navy);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  padding: 8px 20px;
+}
+
+.cta-section .btn-cta {
+  font-size: 18px;
+  padding: 20px 48px;
+}
+
+.email-row {
+  display: flex;
+  justify-content: center;
+  margin-top: 32px;
+  gap: 0;
+  max-width: 440px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.email-row input {
+  flex: 1;
+  padding: 14px 18px;
+  font-size: 15px;
+  font-family: Arial, Helvetica, sans-serif;
+  border: 2px solid var(--navy);
+  background: transparent;
+  color: var(--white);
+  outline: none;
+  min-width: 0;
+}
+
+.email-row input::placeholder {
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.email-row button {
+  padding: 14px 24px;
+  background: var(--tan);
+  color: var(--navy);
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  border: 2px solid var(--tan);
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+  white-space: nowrap;
+}
+
+.email-row button:hover {
+  opacity: 0.85;
+}
+
+/* ── FOOTER ── */
+.footer {
+  text-align: center;
+  padding: 32px 24px;
+  background: var(--navy);
+  font-size: 12px;
+  color: var(--offwhite);
+  opacity: 0.4;
+  letter-spacing: 0.5px;
+}
+
+/* ── RESPONSIVE ── */
+@media (min-width: 640px) {
+  .niche-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .steps-grid {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+@media (min-width: 768px) {
+  .principles {
+    grid-template-columns: 1fr 1fr;
+    gap: 40px 56px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .hero-content {
+    padding: 0 24px;
+  }
+}
+</style>
+</head>
+<body>
+
+<!-- ════════ NAV ════════ -->
+<nav class="nav" id="nav">
+  <div class="container nav-inner">
+    <a href="#" class="nav-logo" aria-label="The Adjustment Group home">
+      <svg width="260" height="50" viewBox="0 0 260 50" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="The Adjustment Group logo">
+        <circle cx="25" cy="25" r="23" fill="#1A2744" stroke="#D4B896" stroke-width="2"/>
+        <text x="26.5" y="27" text-anchor="middle" dominant-baseline="central" fill="#FFFFFF" font-family="Georgia, serif" font-size="14" letter-spacing="2" dy="1">TAG</text>
+        <text x="72" y="23" fill="#FFFFFF" font-family="Georgia, serif" font-size="20" font-weight="bold">The Adjustment Group</text>
+        <text x="72" y="39" fill="#D4B896" font-family="Arial, Helvetica, sans-serif" font-size="9" letter-spacing="2.5">ADJUST TO AI. STAY HUMAN.</text>
+      </svg>
+    </a>
+    <a href="#audit" class="btn-audit">Request a free audit</a>
+  </div>
+</nav>
+
+<!-- ════════ HERO ════════ -->
+<section class="hero" id="hero">
+  <div class="hero-bg" role="img" aria-label="Business professional in a warm, approachable setting"></div>
+  <div class="hero-content">
+    <h1>More humanity in your business. Less time buried in it.</h1>
+    <p class="hero-sub">We adjust businesses for the age of AI — so your people can be more human.</p>
+    <a href="#audit" class="btn-cta">Request your free AI Readiness Audit</a>
+    <p class="hero-note">No commitment. 24-hour turnaround.</p>
+  </div>
+</section>
+
+<!-- ════════ PHILOSOPHY ════════ -->
+<section class="section-light" id="philosophy">
+  <div class="container">
+    <p class="section-label">What We Believe</p>
+    <div class="philosophy-intro">
+      <h2>AI isn't a threat. It's a tool. Most businesses just haven't been shown how to use it properly.</h2>
+    </div>
+    <div class="principles">
+      <div class="principle">
+        <span class="principle-num">01</span>
+        <p>The failure is almost always in the setup, not the software. Most businesses fail at AI not because the technology is broken — but because they'd never onboard a human employee that way.</p>
+      </div>
+      <div class="principle">
+        <span class="principle-num">02</span>
+        <p>Your team is spending 80% of their time working in the business and 20% growing it. The right AI implementation flips that ratio — without adding headcount.</p>
+      </div>
+      <div class="principle">
+        <span class="principle-num">03</span>
+        <p>Dependency is not a business model. We build systems you understand, can monitor, and can grow with. Our job is to hand you the wheel.</p>
+      </div>
+      <div class="principle">
+        <span class="principle-num">04</span>
+        <p>Meaningful change doesn't have to take years. We start narrow, prove value fast, then expand. Trust is built in sprints, not promises.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════ HOW IT WORKS ════════ -->
+<section class="section-dark" id="how">
+  <div class="container">
+    <p class="section-label" style="color: var(--tan); opacity: 0.8;">How It Works</p>
+    <div class="steps-heading">
+      <h2>Three steps. Fourteen days to your first result.</h2>
+    </div>
+    <div class="steps-grid">
+      <div class="step-card">
+        <p class="step-label">Step 1</p>
+        <h3>Strategy</h3>
+        <p>We audit your business and identify the 2–3 places where AI creates immediate measurable value. No tech jargon. Just a clear map.</p>
+      </div>
+      <div class="step-card">
+        <p class="step-label">Step 2</p>
+        <h3>Transformation</h3>
+        <p>We build and install the system — AI receptionist, automated workflows, CEO dashboard. Done in 14 days.</p>
+      </div>
+      <div class="step-card">
+        <p class="step-label">Step 3</p>
+        <h3>Training</h3>
+        <p>We upskill your team, document everything, and hand you the keys. You own the system. We stay on to evolve it.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════ WHO IT'S FOR ════════ -->
+<section class="section-light" id="who">
+  <div class="container">
+    <div class="who-intro">
+      <h2>You've built something remarkable. Now let's stop it from running you.</h2>
+      <p>We work with US business owners doing $5M–$30M who are buried in operational noise, have no technical co-founder, and know that AI is coming whether they're ready or not. They're not looking for a tech vendor. They're looking for someone who understands their business and can make this simple.</p>
+    </div>
+    <div class="niche-grid">
+      <div class="niche-card">
+        <img src="images/niche-homeservices.jpg" alt="Home services business" class="niche-card-img">
+        <div class="niche-card-body">
+          <h3>Home services</h3>
+          <p>HVAC, plumbing, electrical, roofing — inbound calls answered 24/7, jobs booked automatically.</p>
+        </div>
+      </div>
+      <div class="niche-card">
+        <img src="images/niche-realestate.jpg" alt="Real estate agency" class="niche-card-img">
+        <div class="niche-card-body">
+          <h3>Real estate agencies</h3>
+          <p>Speed to lead is everything. AI responds to enquiries in seconds, not hours.</p>
+        </div>
+      </div>
+      <div class="niche-card">
+        <img src="images/niche-medspa.jpg" alt="Med spa and aesthetics" class="niche-card-img">
+        <div class="niche-card-body">
+          <h3>Med spas and aesthetics</h3>
+          <p>Consultative AI that answers treatment questions and books appointments.</p>
+        </div>
+      </div>
+      <div class="niche-card">
+        <img src="images/niche-business.jpg" alt="Growing business" class="niche-card-img">
+        <div class="niche-card-body">
+          <h3>Any growing business</h3>
+          <p>If your team is spending more time on admin than growth, we should talk.</p>
+        </div>
+      </div>
+    </div>
+    <div class="not-for">
+      <p>We're not for everyone — and that's deliberate. We're not the right fit for businesses looking for a quick fix with no commitment to change. Or businesses that want guaranteed outcomes without realistic expectations. Or businesses not willing to involve their team in the transition.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ════════ CLOSING CTA ════════ -->
+<section class="section-dark cta-section" id="audit">
+  <div class="container">
+    <h2>Free AI Readiness Audit.</h2>
+    <p class="cta-sub">We'll map exactly where AI fits in your business — in 24 hours, at no cost.</p>
+    <div class="pills">
+      <span class="pill">24-hour turnaround</span>
+      <span class="pill">No obligation</span>
+      <span class="pill">No tech jargon</span>
+    </div>
+    <a href="#audit" class="btn-cta" id="cta-main">Request your free audit</a>
+    <form class="email-row" id="email-form">
+      <input type="email" placeholder="your@email.com" id="email-input" required aria-label="Your email address">
+      <button type="submit">Send</button>
+    </form>
+  </div>
+</section>
+
+<!-- ════════ FOOTER ════════ -->
+<footer class="footer">
+  The Adjustment Group &middot; adjustmentgroup.co &middot; hello@adjustmentgroup.co
+</footer>
+
+<script>
+// Sticky nav background on scroll
+const nav = document.getElementById('nav');
+let ticking = false;
+
+function updateNav() {
+  if (window.scrollY > 40) {
+    nav.classList.add('scrolled');
+  } else {
+    nav.classList.remove('scrolled');
+  }
+  ticking = false;
+}
+
+window.addEventListener('scroll', function() {
+  if (!ticking) {
+    requestAnimationFrame(updateNav);
+    ticking = true;
+  }
+}, { passive: true });
+
+// Email form → mailto
+document.getElementById('email-form').addEventListener('submit', function(e) {
+  e.preventDefault();
+  const email = document.getElementById('email-input').value;
+  window.location.href = 'mailto:hello@adjustmentgroup.co?subject=AI Readiness Audit Request&body=Hi, I\'d like to request a free AI Readiness Audit. My email is ' + encodeURIComponent(email);
+});
+</script>
+
+</body>
+</html>
