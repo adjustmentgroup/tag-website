@@ -66,11 +66,13 @@ a {
   right: 0;
   z-index: 100;
   padding: 16px 0;
-  transition: background 0.3s ease, box-shadow 0.3s ease;
+  transition: background 0.4s ease, border-color 0.4s ease;
+  border-bottom: 0.5px solid transparent;
 }
 
 .nav.scrolled {
   background: var(--navy);
+  border-bottom-color: rgba(212, 184, 150, 0.3);
 }
 
 .nav-inner {
@@ -95,6 +97,8 @@ a {
   border: none;
   cursor: pointer;
   transition: opacity 0.2s ease;
+  flex-shrink: 0;
+  white-space: nowrap;
 }
 
 .btn-audit:hover {
@@ -141,12 +145,12 @@ a {
   letter-spacing: -0.5px;
 }
 
-.hero-sub {
-  font-size: clamp(16px, 2vw, 20px);
+.hero-supporting {
+  font-size: clamp(15px, 1.8vw, 18px);
   color: var(--offwhite);
   margin-bottom: 40px;
   line-height: 1.6;
-  opacity: 0.9;
+  opacity: 0.65;
 }
 
 .btn-cta {
@@ -302,7 +306,7 @@ a {
   display: grid;
   grid-template-columns: 1fr;
   gap: 24px;
-  margin-bottom: 56px;
+  margin-bottom: 0;
 }
 
 .niche-card {
@@ -332,14 +336,6 @@ a {
   opacity: 0.75;
 }
 
-.not-for {
-  border-top: 1px solid rgba(26, 39, 68, 0.15);
-  padding-top: 32px;
-  font-size: 13px;
-  line-height: 1.8;
-  opacity: 0.5;
-  max-width: 700px;
-}
 
 /* ── CLOSING CTA ── */
 .cta-section {
@@ -399,8 +395,8 @@ a {
   padding: 14px 18px;
   font-size: 15px;
   font-family: Arial, Helvetica, sans-serif;
-  border: 2px solid var(--navy);
-  background: transparent;
+  border: 2px solid rgba(212, 184, 150, 0.3);
+  background: rgba(255, 255, 255, 0.08);
   color: var(--white);
   outline: none;
   min-width: 0;
@@ -431,11 +427,99 @@ a {
 .footer {
   text-align: center;
   padding: 32px 24px;
-  background: var(--navy);
+  background: #1A2744;
   font-size: 12px;
-  color: var(--offwhite);
-  opacity: 0.4;
+  color: rgba(245, 242, 237, 0.4);
   letter-spacing: 0.5px;
+}
+
+.footer a {
+  color: rgba(245, 242, 237, 0.4);
+  transition: color 0.2s ease;
+}
+
+.footer a:hover {
+  color: rgba(245, 242, 237, 0.7);
+}
+
+/* ── MODALS ── */
+.modal-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  background: rgba(26, 39, 68, 0.7);
+  justify-content: center;
+  align-items: center;
+  padding: 24px;
+}
+
+.modal-overlay.active {
+  display: flex;
+}
+
+.modal-content {
+  background: var(--offwhite);
+  max-width: 640px;
+  width: 100%;
+  max-height: 85vh;
+  overflow-y: auto;
+  padding: 48px 40px;
+  position: relative;
+}
+
+.modal-close {
+  position: absolute;
+  top: 16px;
+  right: 20px;
+  background: none;
+  border: none;
+  font-size: 28px;
+  color: var(--navy);
+  cursor: pointer;
+  line-height: 1;
+  opacity: 0.5;
+  transition: opacity 0.2s ease;
+}
+
+.modal-close:hover {
+  opacity: 1;
+}
+
+.modal-content h2 {
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 28px;
+  color: var(--navy);
+  margin-bottom: 4px;
+}
+
+.modal-content .modal-updated {
+  font-size: 13px;
+  color: #666;
+  margin-bottom: 32px;
+}
+
+.modal-content h3 {
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 18px;
+  color: var(--navy);
+  margin-top: 28px;
+  margin-bottom: 8px;
+}
+
+.modal-content p {
+  font-size: 14px;
+  line-height: 1.8;
+  color: #444;
+  margin-bottom: 8px;
+}
+
+.modal-content .modal-contact {
+  margin-top: 28px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(26, 39, 68, 0.12);
+  font-size: 13px;
+  color: #666;
 }
 
 /* ── RESPONSIVE ── */
@@ -469,14 +553,14 @@ a {
 <nav class="nav" id="nav">
   <div class="container nav-inner">
     <a href="#" class="nav-logo" aria-label="The Adjustment Group home">
-      <svg width="260" height="50" viewBox="0 0 260 50" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="The Adjustment Group logo">
+      <svg width="310" height="50" viewBox="0 0 310 50" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="The Adjustment Group logo">
         <circle cx="25" cy="25" r="23" fill="#1A2744" stroke="#D4B896" stroke-width="2"/>
-        <text x="26.5" y="27" text-anchor="middle" dominant-baseline="central" fill="#FFFFFF" font-family="Georgia, serif" font-size="14" letter-spacing="2" dy="1">TAG</text>
-        <text x="72" y="23" fill="#FFFFFF" font-family="Georgia, serif" font-size="20" font-weight="bold">The Adjustment Group</text>
-        <text x="72" y="39" fill="#D4B896" font-family="Arial, Helvetica, sans-serif" font-size="9" letter-spacing="2.5">ADJUST TO AI. STAY HUMAN.</text>
+        <text x="26.5" y="24" text-anchor="middle" dominant-baseline="central" fill="#FFFFFF" font-family="Georgia, serif" font-size="14" letter-spacing="2" dy="1">TAG</text>
+        <text x="62" y="23" fill="#FFFFFF" font-family="Georgia, serif" font-size="18" font-weight="bold">The Adjustment Group</text>
+        <text x="62" y="39" fill="#D4B896" font-family="Arial, Helvetica, sans-serif" font-size="9" letter-spacing="2.5">ADJUST TO AI. STAY HUMAN.</text>
       </svg>
     </a>
-    <a href="#audit" class="btn-audit">Request a free audit</a>
+    <a href="#audit" class="btn-audit">Request a free Blueprint</a>
   </div>
 </nav>
 
@@ -484,10 +568,10 @@ a {
 <section class="hero" id="hero">
   <div class="hero-bg" role="img" aria-label="Business professional in a warm, approachable setting"></div>
   <div class="hero-content">
-    <h1>More humanity in your business. Less time buried in it.</h1>
-    <p class="hero-sub">We adjust businesses for the age of AI — so your people can be more human.</p>
-    <a href="#audit" class="btn-cta">Request your free AI Readiness Audit</a>
-    <p class="hero-note">No commitment. 24-hour turnaround.</p>
+    <h1>Human teams. AI systems. The adjustment your business needs to make.</h1>
+    <p class="hero-supporting">We'll map your personalised AI roadmap — where to start, what to fix, what it's worth to your business. Delivered straight to your inbox, at no cost.</p>
+    <a href="#audit" class="btn-cta">Request your free AI Blueprint</a>
+    <p class="hero-note">No commitment. Delivered straight to your inbox.</p>
   </div>
 </section>
 
@@ -524,18 +608,18 @@ a {
   <div class="container">
     <p class="section-label" style="color: var(--tan); opacity: 0.8;">How It Works</p>
     <div class="steps-heading">
-      <h2>Three steps. Fourteen days to your first result.</h2>
+      <h2>Three steps. Ten days to your first result.</h2>
     </div>
     <div class="steps-grid">
       <div class="step-card">
         <p class="step-label">Step 1</p>
         <h3>Strategy</h3>
-        <p>We audit your business and identify the 2–3 places where AI creates immediate measurable value. No tech jargon. Just a clear map.</p>
+        <p>We assess your business and identify the 2–3 places where AI creates immediate measurable value. No tech jargon. Just a clear map.</p>
       </div>
       <div class="step-card">
         <p class="step-label">Step 2</p>
         <h3>Transformation</h3>
-        <p>We build and install the system — AI receptionist, automated workflows, CEO dashboard. Done in 14 days.</p>
+        <p>We build and install the system — AI receptionist, automated workflows, CEO dashboard. Done in 10 days.</p>
       </div>
       <div class="step-card">
         <p class="step-label">Step 3</p>
@@ -551,11 +635,11 @@ a {
   <div class="container">
     <div class="who-intro">
       <h2>You've built something remarkable. Now let's stop it from running you.</h2>
-      <p>We work with US business owners doing $5M–$30M who are buried in operational noise, have no technical co-founder, and know that AI is coming whether they're ready or not. They're not looking for a tech vendor. They're looking for someone who understands their business and can make this simple.</p>
+      <p>We work with US business owners doing $2M–$30M who are buried in operational noise, have no technical co-founder, and know that AI is coming whether they're ready or not. They're not looking for a tech vendor. They're looking for someone who understands their business and can make this simple.</p>
     </div>
     <div class="niche-grid">
       <div class="niche-card">
-        <img src="images/niche-homeservices.jpg" alt="Home services business" class="niche-card-img">
+        <img src="images/niche-homeservices.jpg" alt="Home services business" class="niche-card-img" style="object-position: center top;">
         <div class="niche-card-body">
           <h3>Home services</h3>
           <p>HVAC, plumbing, electrical, roofing — inbound calls answered 24/7, jobs booked automatically.</p>
@@ -583,23 +667,20 @@ a {
         </div>
       </div>
     </div>
-    <div class="not-for">
-      <p>We're not for everyone — and that's deliberate. We're not the right fit for businesses looking for a quick fix with no commitment to change. Or businesses that want guaranteed outcomes without realistic expectations. Or businesses not willing to involve their team in the transition.</p>
-    </div>
   </div>
 </section>
 
 <!-- ════════ CLOSING CTA ════════ -->
 <section class="section-dark cta-section" id="audit">
   <div class="container">
-    <h2>Free AI Readiness Audit.</h2>
-    <p class="cta-sub">We'll map exactly where AI fits in your business — in 24 hours, at no cost.</p>
+    <h2>Free AI Blueprint.</h2>
+    <p class="cta-sub">We'll map your personalised AI roadmap — where to start, what to fix, what it's worth to your business. Delivered straight to your inbox, at no cost.</p>
     <div class="pills">
-      <span class="pill">24-hour turnaround</span>
+      <span class="pill">Delivered straight to your inbox</span>
       <span class="pill">No obligation</span>
       <span class="pill">No tech jargon</span>
     </div>
-    <a href="#audit" class="btn-cta" id="cta-main">Request your free audit</a>
+    <a href="#audit" class="btn-cta" id="cta-main">Request your free AI Blueprint</a>
     <form class="email-row" id="email-form">
       <input type="email" placeholder="your@email.com" id="email-input" required aria-label="Your email address">
       <button type="submit">Send</button>
@@ -609,7 +690,7 @@ a {
 
 <!-- ════════ FOOTER ════════ -->
 <footer class="footer">
-  The Adjustment Group &middot; adjustmentgroup.co &middot; hello@adjustmentgroup.co
+  The Adjustment Group &middot; adjustmentgroup.co &middot; hello@adjustmentgroup.co &middot; <a href="#" onclick="openModal('privacy');return false;">Privacy Policy</a> &middot; <a href="#" onclick="openModal('terms');return false;">Terms &amp; Conditions</a>
 </footer>
 
 <script>
@@ -637,9 +718,75 @@ window.addEventListener('scroll', function() {
 document.getElementById('email-form').addEventListener('submit', function(e) {
   e.preventDefault();
   const email = document.getElementById('email-input').value;
-  window.location.href = 'mailto:hello@adjustmentgroup.co?subject=AI Readiness Audit Request&body=Hi, I\'d like to request a free AI Readiness Audit. My email is ' + encodeURIComponent(email);
+  window.location.href = 'mailto:hello@adjustmentgroup.co?subject=AI Blueprint Request&body=Hi, I\'d like to request a free AI Blueprint. My email is ' + encodeURIComponent(email);
+});
+
+// Modals
+function openModal(id) {
+  document.getElementById('modal-' + id).classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeModal(id) {
+  document.getElementById('modal-' + id).classList.remove('active');
+  document.body.style.overflow = '';
+}
+
+document.querySelectorAll('.modal-overlay').forEach(function(overlay) {
+  overlay.addEventListener('click', function(e) {
+    if (e.target === overlay) {
+      overlay.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+  });
 });
 </script>
+
+<!-- ════════ PRIVACY POLICY MODAL ════════ -->
+<div class="modal-overlay" id="modal-privacy">
+  <div class="modal-content">
+    <button class="modal-close" onclick="closeModal('privacy')">&times;</button>
+    <h2>Privacy Policy</h2>
+    <p class="modal-updated">Last updated: April 2026</p>
+    <p>The Adjustment Group Pte Ltd (Singapore-registered) operates adjustmentgroup.co. This policy explains how we collect, use, and protect your information.</p>
+    <h3>Information we collect</h3>
+    <p>We collect information you voluntarily provide when requesting an AI Blueprint, including your name, email address, and business details. We also collect standard website analytics data including pages visited, time on site, and referring source.</p>
+    <h3>How we use your information</h3>
+    <p>We use your information solely to deliver your AI Blueprint, follow up on your enquiry, and improve our services. We do not sell, rent, or share your personal information with third parties for marketing purposes.</p>
+    <h3>Data storage and security</h3>
+    <p>Your data is stored securely. We retain contact information for as long as necessary to service your enquiry and comply with legal obligations. You may request deletion of your data at any time by emailing hello@adjustmentgroup.co.</p>
+    <h3>Cookies</h3>
+    <p>This site uses minimal analytics cookies to understand visitor behaviour. You can disable cookies in your browser settings at any time.</p>
+    <h3>Your rights</h3>
+    <p>You have the right to access, correct, or delete any personal data we hold about you. To exercise these rights, contact us at hello@adjustmentgroup.co.</p>
+    <p class="modal-contact">The Adjustment Group Pte Ltd &middot; hello@adjustmentgroup.co &middot; adjustmentgroup.co</p>
+  </div>
+</div>
+
+<!-- ════════ TERMS & CONDITIONS MODAL ════════ -->
+<div class="modal-overlay" id="modal-terms">
+  <div class="modal-content">
+    <button class="modal-close" onclick="closeModal('terms')">&times;</button>
+    <h2>Terms &amp; Conditions</h2>
+    <p class="modal-updated">Last updated: April 2026</p>
+    <p>These terms govern your use of adjustmentgroup.co and any services provided by The Adjustment Group Pte Ltd (Singapore-registered).</p>
+    <h3>Services</h3>
+    <p>The Adjustment Group Pte Ltd provides AI systems implementation, consulting, and related services to business owners. Service scope, deliverables, and fees are agreed in writing before work commences.</p>
+    <h3>AI Blueprint</h3>
+    <p>The free AI Blueprint is provided in good faith based on information you supply. It is an assessment of opportunity, not a guarantee of outcomes. Results will vary based on your business, team, and implementation.</p>
+    <h3>Intellectual property</h3>
+    <p>All materials, frameworks, and systems we create remain the intellectual property of The Adjustment Group Pte Ltd until full payment is received, at which point ownership transfers to the client as agreed in the service agreement.</p>
+    <h3>Limitation of liability</h3>
+    <p>The Adjustment Group Pte Ltd is not liable for indirect, incidental, or consequential damages arising from the use of our services or this website. Our total liability is limited to fees paid in the preceding 30 days.</p>
+    <h3>Confidentiality</h3>
+    <p>We treat all client business information as strictly confidential. We will not share, publish, or use your business information beyond the scope of your engagement without your written consent.</p>
+    <h3>Governing law</h3>
+    <p>These terms are governed by the laws of Singapore. Any disputes will be resolved in Singapore courts.</p>
+    <h3>Changes to these terms</h3>
+    <p>We reserve the right to update these terms at any time. Continued use of our services constitutes acceptance of the updated terms.</p>
+    <p class="modal-contact">The Adjustment Group Pte Ltd &middot; hello@adjustmentgroup.co &middot; adjustmentgroup.co</p>
+  </div>
+</div>
 
 </body>
 </html>
